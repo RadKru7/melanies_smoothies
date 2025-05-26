@@ -38,3 +38,7 @@ if ingredienrs_list:
     if zatwierdz_przycisk:
         session.sql(my_insert_stmt).collect()
         st.success('Twoje zamówienie zostało wysłane do realizacji!', icon="✅")
+
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
