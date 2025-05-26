@@ -39,6 +39,7 @@ if ingredienrs_list:
         session.sql(my_insert_stmt).collect()
         st.success('Twoje zamówienie zostało wysłane do realizacji!', icon="✅")
 
-import requests
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response)
+    import requests
+    smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+    st.text(smoothiefroot_response.json())
+    sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
