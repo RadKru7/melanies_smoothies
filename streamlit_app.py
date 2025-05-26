@@ -18,8 +18,9 @@ st.write("Nazwa drinka to", name_of_smoothie)
 
 cnx = st.connection("snowflake")
 session = cnx.session()
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
-#st.dataframe(data=my_dataframe, use_container_width=True)
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
+st.dataframe(data=my_dataframe, use_container_width=True)
+st.stop()
 ingredienrs_list = st.multiselect('wybierz owocki do koktaju do mask pięciu', my_dataframe, max_selections=5)
 
 if ingredienrs_list:
